@@ -6,7 +6,7 @@ olddir="$HOME/dotfiles_old" # old dotfiles backup directory
 
 # Optional: names to exclude from linking (space-separated)
 # e.g., README.md, .git, scripts, etc.
-exclude_list=("README" "README.md" "LICENSE" ".git" ".gitignore" ".gitmodules" "makesymlinks.sh")
+exclude_list=("README" "README.md" "LICENSE" ".git" ".gitignore" ".gitmodules")
 
 echo "Creating backup directory: $olddir"
 mkdir -p "$olddir"
