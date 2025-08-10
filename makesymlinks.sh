@@ -6,7 +6,7 @@ olddir="$HOME/dotfiles_old" # old dotfiles backup directory
 
 # Optional: names to exclude from linking (space-separated)
 # e.g., README.md, .git, scripts, etc.
-exclude_list=("README" "README.md" "LICENSE" ".git" ".gitignore" ".gitmodules")
+exclude_list=("README" "README.md" "LICENSE" ".git" ".gitignore" ".gitmodules" "makesymlinks.sh")
 
 echo "Creating backup directory: $olddir"
 mkdir -p "$olddir"
@@ -29,9 +29,16 @@ in_excludes() {
 shopt -s nullglob
 for path in "$dir"/*; do
   base="$(basename "$path")"
+  
   # Skip excluded names
   if in_excludes "$base"; then
     echo "Skipping excluded: $base"
+    continue
+  fi
+
+  # Skip files with .sh extension
+  if [[ "$base" == *.sh ]]; then
+    echo "Skipping .sh file: $base"
     continue
   fi
 
