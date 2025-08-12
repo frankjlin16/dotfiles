@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-dir="$HOME/dotfiles"        # dotfiles directory
-olddir="$HOME/dotfiles_old" # old dotfiles backup directory
+dir="$HOME/.dotfiles"        # dotfiles directory
+olddir="$HOME/.dotfiles_old" # old dotfiles backup directory
 
 # Optional: names to exclude from linking (space-separated)
 # e.g., README.md, .git, scripts, etc.
