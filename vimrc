@@ -17,11 +17,11 @@ set expandtab
 set nowrap
 
 " Enable line numbers
- set cursorline
- set number
- set relativenumber
- set scrolloff=8
- set signcolumn=yes
+set cursorline
+set number
+set relativenumber
+set scrolloff=8
+set signcolumn=yes
 
 set showcmd
 set conceallevel=1
