@@ -11,7 +11,8 @@ git clone https://github.com/frankjlin16/dotfiles.git
 Run the symlink script
 
 ```shell
-cd ~/dotfiles
+mv ~/dotfiles ~/.dotfiles
+cd ~/.dotfiles
 chmod +x makesymlinks.sh
 ./makesymlinks.sh
 ```
