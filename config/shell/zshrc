@@ -13,13 +13,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # nvm end
 
+# Repository location. Override DOTFILES_DIR when the repository is cloned elsewhere.
+dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
+
 # Oh My Posh
-eval "$(oh-my-posh init zsh --config ~/.dotfiles/.mytheme.omp.json)"
+eval "$(oh-my-posh init zsh --config "$dotfiles_dir/config/prompt/theme.omp.json")"
 # End of Oh My Posh
 
 # Load OS-specific configurations
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  [ -f "$HOME/.dotfiles/macos.zshrc" ] && source "$HOME/.dotfiles/macos.zshrc"
+  [ -f "$dotfiles_dir/config/shell/macos.zshrc" ] && source "$dotfiles_dir/config/shell/macos.zshrc"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  [ -f "$HOME/.dotfiles/linux.zshrc" ] && source "$HOME/.dotfiles/linux.zshrc"
+  [ -f "$dotfiles_dir/config/shell/linux.zshrc" ] && source "$dotfiles_dir/config/shell/linux.zshrc"
 fi

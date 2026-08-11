@@ -30,16 +30,16 @@ Install the following before setup:
 3. Make the installer executable:
 
    ```shell
-   chmod +x makesymlinks.sh
+   chmod +x scripts/makesymlinks.sh
    ```
 
 4. Create the symlinks:
 
    ```shell
-   ./makesymlinks.sh
+   ./scripts/makesymlinks.sh
    ```
 
-The script creates `~/.dotfiles_old` and backs up existing dotfiles before replacing them. It links the repository's top-level configuration files into your home directory and skips documentation, Git metadata, and shell scripts.
+The script creates `~/.dotfiles_old` and backs up existing dotfiles before replacing them. It links only the supported home-directory files: `config/shell/zshrc` to `~/.zshrc` and `config/editor/vimrc` to `~/.vimrc`.
 
 ## Optional: Linux MOTD
 
@@ -47,7 +47,7 @@ On Ubuntu or Debian systems that use `update-motd`, install the custom greeting 
 
 ```shell
 sudo install -m 755 \
-  ~/.dotfiles/update-motd.d/05-greeting \
+  ~/.dotfiles/config/motd/update-motd.d/05-greeting \
   /etc/update-motd.d/05-greeting
 ```
 
@@ -61,12 +61,13 @@ The greeting will appear during the next SSH login or login shell when `update-m
 
 ## Included
 
-- `zshrc`, linked as `~/.zshrc`
-- OS-specific configuration for macOS and Linux
+- `config/shell/zshrc`, linked as `~/.zshrc`
+- `config/shell/macos.zshrc` and `config/shell/linux.zshrc`, loaded by Zsh as appropriate
 - nvm, pnpm, Homebrew, and Oh My Posh configuration
-- `.mytheme.omp.json`, the Oh My Posh theme
-- `vimrc`, linked as `~/.vimrc`
-- `update-motd.d/05-greeting`, the optional Linux login greeting
+- `config/prompt/theme.omp.json`, the Oh My Posh theme
+- `config/editor/vimrc`, linked as `~/.vimrc`
+- `config/motd/update-motd.d/05-greeting`, the optional Linux login greeting
+- `scripts/makesymlinks.sh`, the symlink installer
 
 ## References
 
