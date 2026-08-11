@@ -1,48 +1,72 @@
 # Frankie's Dotfiles
 
-## Get started
+Shell and editor configuration for macOS and Linux.
 
-Clone the repository
+## Prerequisites
+
+Install the following before setup:
+
+- Git
+- Zsh
+- nvm
+- pnpm
+- Oh My Posh
+- Homebrew
+
+## Setup
+
+1. Clone the repository to the location expected by the installer:
+
+   ```shell
+   git clone https://github.com/frankjlin16/dotfiles.git ~/.dotfiles
+   ```
+
+2. Enter the repository:
+
+   ```shell
+   cd ~/.dotfiles
+   ```
+
+3. Make the installer executable:
+
+   ```shell
+   chmod +x makesymlinks.sh
+   ```
+
+4. Create the symlinks:
+
+   ```shell
+   ./makesymlinks.sh
+   ```
+
+The script creates `~/.dotfiles_old` and backs up existing dotfiles before replacing them. It links the repository's top-level configuration files into your home directory and skips documentation, Git metadata, and shell scripts.
+
+## Optional: Linux MOTD
+
+On Ubuntu or Debian systems that use `update-motd`, install the custom greeting with:
 
 ```shell
-git clone https://github.com/frankjlin16/dotfiles.git
-```
-
-Run the symlink script
-
-```shell
-mv ~/dotfiles ~/.dotfiles
-cd ~/.dotfiles
-chmod +x makesymlinks.sh
-./makesymlinks.sh
-```
-
-## Linux MOTD (Ubuntu/Debian)
-
-To install the custom login message, copy the executable script into the dynamic MOTD directory:
-
-```shell
-sudo install -m 755 \\
-  ~/.dotfiles/update-motd.d/05-greeting \\
+sudo install -m 755 \
+  ~/.dotfiles/update-motd.d/05-greeting \
   /etc/update-motd.d/05-greeting
 ```
 
-You can test it without logging out:
+Test it without logging out:
 
 ```shell
 /etc/update-motd.d/05-greeting
 ```
 
-The message will be displayed on the next SSH login or login shell, provided the system uses `update-motd`.
+The greeting will appear during the next SSH login or login shell when `update-motd` runs.
 
-## Packages Required (from zshrc)
+## Included
 
-- zsh
-- nvm
-- pnpm
-- Docker Desktop
-- Oh My Posh
-- vscode shell integration support (`code` command)
+- `zshrc`, linked as `~/.zshrc`
+- OS-specific configuration for macOS and Linux
+- nvm, pnpm, Homebrew, and Oh My Posh configuration
+- `.mytheme.omp.json`, the Oh My Posh theme
+- `vimrc`, linked as `~/.vimrc`
+- `update-motd.d/05-greeting`, the optional Linux login greeting
 
 ## References
 
