@@ -10,9 +10,6 @@ fi
 # Added by Antigravity IDE
 export PATH="/Users/diode/.antigravity-ide/antigravity-ide/bin:$PATH"
 
-# Added by Antigravity CLI installer
-export PATH="$HOME/.local/bin:$PATH"
-
 # lean-ctx shell hook — begin
 if [ -f "/Users/diode/.config/lean-ctx/shell-hook.zsh" ]; then
 . "/Users/diode/.config/lean-ctx/shell-hook.zsh"
